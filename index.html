@@ -36,7 +36,7 @@ limitations under the License.
     <script src="https://unpkg.com/resize-observer-polyfill@1.5.1/dist/ResizeObserver.js"></script>
 
     <!-- 💁 OPTIONAL: Fullscreen polyfill is required for experimental AR features in Canary -->
-    <!--<script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>-->
+    <script src="https://unpkg.com/fullscreen-polyfill@1.0.2/dist/fullscreen.polyfill.js"></script>
 
     <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
     <!--<script src="https://unpkg.com/@magicleap/prismatic@0.18.2/prismatic.min.js"></script>-->
@@ -54,6 +54,7 @@ limitations under the License.
       model-src:
       <select id="model-src" name="src">
         <option>third_party/Eevee/model.gltf</option>
+        <option>third_party/Bran/Barn Open.gltf</option>
         <option>third_party/Takoyaki/model.gltf</option>
         <option>third_party/Astronaut/Astronaut.glb</option>
         <option>third_party/DamagedHelmet/DamagedHelmet.gltf</option>
@@ -63,6 +64,7 @@ limitations under the License.
       auto-rotate: <input type="checkbox" id="auto-rotate" name="auto-rotate" value="1" checked> <br>
       camera-controls: <input type="checkbox" id="camera-controls" name="camera-controls" value="1" checked> <br>
       background-color: <input id="background-color" name="background-color" type="color" >  <br>
+      background-image: <input id="background-image" name="background-image" type="text" >  <br>
       environment-image: 
       <select id="environment-image" name='environment-image'>
           <option></option>
@@ -145,6 +147,9 @@ limitations under the License.
             mvd.removeAttribute(name);
           }
       };
+
+      document.getElementById('background-image')
+        .addEventListener('change', handleSimpleSet);
 
       document.getElementById('environment-intensity')
         .addEventListener('change', handleSimpleSet);
