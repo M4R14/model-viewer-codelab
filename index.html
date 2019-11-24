@@ -53,16 +53,19 @@ limitations under the License.
     <form>
       model-src:
       <select id="model-src" name="src">
+        <option>third_party/Eevee/model.gltf</option>
+        <option>third_party/Takoyaki/model.gltf</option>
         <option>third_party/Astronaut/Astronaut.glb</option>
         <option>third_party/DamagedHelmet/DamagedHelmet.gltf</option>
-        <option>third_party/Default_albedo/Default_albedo.jpg</option>
       </select>
       <br>
+      ar: <input type="checkbox" id="ar" name="ar" value="1"> <br>
       auto-rotate: <input type="checkbox" id="auto-rotate" name="auto-rotate" value="1" checked> <br>
       camera-controls: <input type="checkbox" id="camera-controls" name="camera-controls" value="1" checked> <br>
       background-color: <input id="background-color" name="background-color" type="color" >  <br>
       environment-image: 
       <select id="environment-image" name='environment-image'>
+          <option></option>
           <option>third_party/hdrihaven/studio_small_07_1k.hdr</option>
       </select>
       <br>
@@ -88,7 +91,6 @@ limitations under the License.
       shadow-intensity="0"
       stage-light-intensity="0"
       environment-intensity="0"
-      camera-orbit="-20deg 75deg 2m"
     >
     </model-viewer>
   </div>
@@ -152,6 +154,9 @@ limitations under the License.
 
       document.getElementById('shadow-intensity')
         .addEventListener('change', handleSimpleSet);
+
+      document.getElementById('ar')
+        .addEventListener('change', handleCheckBox);
 
       document.getElementById('auto-rotate')
         .addEventListener('change', handleCheckBox);
